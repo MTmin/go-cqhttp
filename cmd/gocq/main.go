@@ -399,9 +399,16 @@ func LoginInteract() {
 	saveToken()
 	cli.AllowSlider = true
 	log.Infof("登录成功 欢迎使用: %v", cli.Nickname)
-	log.Info("开始加载好友列表...")
-	global.Check(cli.ReloadFriendList(), true)
-	log.Infof("共加载 %v 个好友.", len(cli.FriendList))
+	err := cli.ReloadFriendList()
+	if err != nil {
+        	log.Printf("加载好友列表时出错: %v", err)
+        // 在这里处理错误，比如记录错误日志、通知管理员等
+    	} else {
+        	log.Printf("共加载 %v 个好友.", len(cli.FriendList))
+    	}
+	// log.Info("开始加载好友列表...")
+	// global.Check(cli.ReloadFriendList(), true)
+	// log.Infof("共加载 %v 个好友.", len(cli.FriendList))
 	log.Infof("开始加载群列表...")
 	global.Check(cli.ReloadGroupList(), true)
 	log.Infof("共加载 %v 个群.", len(cli.GroupList))
