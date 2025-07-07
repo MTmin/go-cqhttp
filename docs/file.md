@@ -4,7 +4,7 @@ go-cqhttp 默认生成的文件树如下所示:
 
 ```
 .
-├── go-cqhttp
+├── go-cqhttp1
 ├── config.yml
 ├── device.json
 ├── logs
