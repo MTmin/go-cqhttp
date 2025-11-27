@@ -366,10 +366,6 @@ func LoginInteract() {
 	saveToken()
 	// cli.AllowSlider = true
 	log.Infof("登录成功 欢迎使用: %v", cli.NickName())
-	log.Info("开始加载好友列表...")
-	global.Check(cli.RefreshFriendCache(), true)
-	friendListLen := len(cli.GetCachedAllFriendsInfo())
-	log.Infof("共加载 %v 个好友.", friendListLen)
 	log.Infof("开始加载群列表...")
 	global.Check(cli.RefreshAllGroupsInfo(), true)
 	GroupListLen := len(cli.GetCachedAllGroupsInfo())
